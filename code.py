@@ -20,19 +20,19 @@ if __name__ == '__main__':
     #This dataframe shows each factors influence
 
 
-    max = pd.DataFrame(abs(model.coef_))
-    #create dataframe with all positive values to find the maximum
+    find_max = pd.DataFrame(abs(model.coef_))
+    # create dataframe with all positive values to find the maximum
 
-    max.columns = ['Coef']
-    max['Feature'] = boston.feature_names
+    find_max.columns = ['Coef']
+    find_max['Feature'] = boston.feature_names
 
-    max['Influence'] = 'Positive'
+    find_max['Influence'] = 'Positive'
 
     for row in influence['Coef']:
-        if row < 0 :
-            max['Influence'] = 'Negative'
+        if row < 0:
+            find_max['Influence'] = 'Negative'
 
-    MaxInfluence = (max[max.Coef == max.Coef.max()])
+    MaxInfluence = (find_max[find_max.Coef == find_max.Coef.max()])
 
     with open('Boston.txt', 'w') as b:
             b.write(str(MaxInfluence))
