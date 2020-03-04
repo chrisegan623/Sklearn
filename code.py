@@ -1,6 +1,5 @@
 from sklearn.linear_model import LinearRegression
 from sklearn.datasets import load_boston
-from sklearn.linear_model import LinearRegression
 import pandas as pd
 
 def sklearn(x):
